@@ -1,0 +1,132 @@
+.popups {
+  z-index: var(--z-modal);
+  position: relative;
+}
+.pop {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-y: auto;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(50%) scale(0.5);
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  align-items: center;
+}
+// .pop--opened {
+.pop._show {
+  pointer-events: initial;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pop-callback__wrapper {
+  max-width: 510px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.pop__title {
+  text-align: center;
+  color: var(--c-font-regular);
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.pop__desc {
+  text-align: center;
+  font-size: 16px;
+  color: var(--c-font-regular);
+  margin-bottom: 20px;
+  line-height: 1.45;
+}
+
+.pop-callback__button {
+  width: 100%;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 2;
+}
+
+.popups-thanks__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all ease-in-out 0.3s;
+}
+.popups-thanks {
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background-color: #fff;
+  padding: 40px 40px 50px;
+  border-radius: 5px;
+  text-align: center;
+  transition: all ease-in-out 0.3s;
+  transform: translateY(50%) scale(0.5);
+}
+.popups-thanks--visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.popups-thanks--visible .popups-thanks {
+  transform: translateY(0%) scale(1);
+}
+.popups-thanks__icon {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.popups-thanks__close {
+  width: 30px;
+  height: 30px;
+}
+.popups-thanks__title,
+.popups-thanks__desc {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.popups-thanks__close::before,
+.popups-thanks__close::after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: relative;
+  margin: auto;
+}
+.popups-thanks__close::before {
+  transform: rotate(45deg) translate(1.5px, 1px);
+}
+.popups-thanks__close::after {
+  transform: rotate(-45deg) translate(0.5px, 0px);
+}
+
+@media (max-width: 1370px) {
+  .pop-callback__wrapper {
+    max-width: 410px;
+  }
+}
+@media (max-width: 575px) {
+  .pop__title {
+    font-size: 24px;
+  }
+}

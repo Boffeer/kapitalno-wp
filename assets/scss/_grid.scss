@@ -1,0 +1,9 @@
+.wrapper {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+@media (max-width: var(--media-mobile)) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}

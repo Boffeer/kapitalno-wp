@@ -1,0 +1,113 @@
+.masters {
+  margin-bottom: 80px;
+}
+.masters__inner {
+  border-top: var(--border-section);
+  border-bottom: var(--border-section);
+}
+.masters__wrapper {
+  border-right: var(--border-section);
+  border-left: var(--border-section);
+}
+.masters__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding-left: var(--gutter-wrapper);
+  padding-right: var(--gutter-wrapper);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.masters-card__pic {
+  // height: 360px;
+  height: auto;
+  aspect-ratio: 1;
+  display: block;
+  margin-bottom: 33px;
+}
+.masters-card__img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.masters-card__name {
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+.masters-card__desc {
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 300;
+}
+.masters-card__post {
+  position: relative;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+.masters-card__post::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: var(--c-font-regular);
+  position: absolute;
+  bottom: 0;
+}
+
+@media (max-width: 1199px) {
+  .masters {
+    margin-bottom: 0px;
+  }
+  .masters__wrapper {
+    border-left: none;
+    border-right: none;
+  }
+  .masters__inner {
+    border-bottom: none;
+  }
+  .masters-card__desc br {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .masters__gallery {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 575px) {
+  .masters-card__pic {
+    margin-bottom: 20px;
+  }
+  .masters-card__name {
+    font-size: 18px;
+  }
+  .masters-card__post {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  .masters-card__post::before {
+    height: 1px;
+  }
+  .masters__gallery {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 60px 30px;
+  }
+  .masters__inner {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 422px) {
+  .masters__gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .masters-card__pic {
+    margin-left: calc(0px - var(--gutter-wrapper));
+    width: calc(100% + var(--gutter-wrapper) * 2);
+  }
+}

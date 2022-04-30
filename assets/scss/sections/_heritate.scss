@@ -1,0 +1,116 @@
+.heritate__title {
+  line-height: 1.25;
+}
+.heritate__title-wrapper {
+  padding-bottom: 20px;
+}
+.heritate__inner {
+  border-top: var(--border-section);
+  border-bottom: var(--border-section);
+}
+.heritate__wrapper {
+  border-left: var(--border-section);
+  border-right: var(--border-section);
+  padding-top: 80px;
+  padding-left: var(--gutter-wrapper);
+  padding-right: var(--gutter-wrapper);
+  padding-bottom: 80px;
+}
+
+.heritate__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 250px)) 1fr;
+  gap: 55px;
+}
+.heritate-card__desc {
+  position: relative;
+}
+
+.heritate-card__pic {
+  display: block;
+  margin-bottom: 30px;
+  height: 360px;
+}
+.heritate-card__img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.heritate-card__desc {
+  padding-right: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.heritate-card:nth-of-type(3n) .heritate-card__img {
+  object-fit: cover;
+}
+.heritate-card:first-of-type .heritate-card__img {
+  object-fit: contain;
+}
+
+@media (max-width: 1199px) {
+  .heritate__wrapper {
+    padding-top: 50px;
+    border-left: none;
+    border-right: none;
+  }
+  .heritate__gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+  }
+
+  .heritate-card__pic {
+    margin-bottom: 10px;
+  }
+  .heritate-card__desc {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .heritate__gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .heritate-card {
+    margin-bottom: 20px;
+  }
+  .heritate-card:nth-of-type(3n) {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .heritate__wrapper {
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+  }
+  .heritate-card {
+    margin-bottom: 35px;
+  }
+  .heritate-card:last-child {
+    margin-bottom: 0;
+  }
+  .heritate-card__desc {
+    text-align: center;
+  }
+  .heritate-card__pic {
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 422px) {
+  .heritate__wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .heritate-card__pic {
+    max-width: 100%;
+  }
+}
