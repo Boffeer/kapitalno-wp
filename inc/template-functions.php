@@ -39,11 +39,38 @@ function kapitalno_pingback_header()
 }
 add_action('wp_head', 'kapitalno_pingback_header');
 
-function get_home_link()
-{
-	if (is_front_page()) {
-		return home_url();
-	} else {
-		return '#';
+if (!function_exists('get_home_link')) {
+	function get_home_link()
+	{
+		if (is_front_page()) {
+			return home_url();
+		} else {
+			return '#';
+		}
+	}
+}
+
+
+if (!function_exists('get_vd')) {
+	function get_vd($vd)
+	{
+		echo '<pre>';
+		var_dump($vd);
+		echo '</pre>';
+	}
+}
+
+if (!function_exists('get_crb_contacts')) {
+	function get_crb_contacts()
+	{
+		return array(
+			'email' => carbon_get_theme_option('kapitalno_email'),
+			'phone' => carbon_get_theme_option('kapitalno_phone'),
+			'phone_raw' => '+' . preg_replace('/\D/i', '', carbon_get_theme_option('kapitalno_phone')),
+			'address' => carbon_get_theme_option('kapitalno_address'),
+			'instagram' => carbon_get_theme_option('kapitalno_instagram'),
+			'facebook' => carbon_get_theme_option('kapitalno_facebook'),
+			'vk' => carbon_get_theme_option('kapitalno_vk'),
+		);
 	}
 }

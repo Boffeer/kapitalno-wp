@@ -186,3 +186,23 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Carbon Fields
+ */
+add_action('after_setup_theme', 'crb_load');
+function crb_load()
+{
+	load_template(get_template_directory() . '/inc/carbon-fields/vendor/autoload.php');
+	\Carbon_Fields\Carbon_Fields::boot();
+}
+
+/**
+ * Carbon Fields
+ */
+add_action('carbon_fields_register_fields', 'ast_register_custom_fields');
+function ast_register_custom_fields()
+{
+	require get_template_directory() . '/inc/custom-fields-options/metabox.php';
+	require get_template_directory() . '/inc/custom-fields-options/theme-options.php';
+}
