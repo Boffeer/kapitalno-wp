@@ -33,7 +33,6 @@
 	$burger_menu_items =  wp_get_nav_menu_items($burger_menu_id, [
 		'output_key'  => 'menu_order',
 	]);
-	// get_vd($burger_menu_items);
 	?>
 	<header class="header section--regular">
 		<div class="wrapper header__wrapper">
