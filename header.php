@@ -26,9 +26,18 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
+	<?php $contacts = get_crb_contacts(); ?>
+
+	<?php
+	$burger_menu_id = 3;
+	$burger_menu_items =  wp_get_nav_menu_items($burger_menu_id, [
+		'output_key'  => 'menu_order',
+	]);
+	// get_vd($burger_menu_items);
+	?>
 	<header class="header section--regular">
 		<div class="wrapper header__wrapper">
-			<a href="#" class="header__logo">
+			<a href=<?php echo get_home_link(); ?>" class="header__logo">
 				<picture class="header__logo-pic">
 					<img class="header__logo-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/common/logo.svg" alt="Капитально" />
 				</picture>
@@ -50,34 +59,24 @@
 					<a href="<?php echo get_home_link(); ?>" class="header-burger__logo">
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/common/logo.svg" alt="Капитально" />
 					</a>
+					<?php
+					$burger_menu_id = 3;
+					$burger_menu_items =  wp_get_nav_menu_items($burger_menu_id, [
+						'output_key'  => 'menu_order',
+					]);
+					?>
 					<nav class="header-burger-nav">
 						<ul class="header-burger-nav__list">
-							<li class="header-burger-nav__item">
-								<a href="https://kapitalno.pro/cases" class="header-burger-nav__link">Кейсы</a>
-							</li>
-							<li class="header-burger-nav__item">
-								<a href="https://kapitalno.pro/renovation" class="header-burger-nav__link">Ремонт старого фонда</a>
-							</li>
-							<li class="header-burger-nav__item">
-								<a href="https://kapitalno.pro/houses" class="header-burger-nav__link">Ремонт квартир и домов</a>
-							</li>
-							<li class="header-burger-nav__item">
-								<a href="https://kapitalno.pro/forbusiness" class="header-burger-nav__link">Для бизнеса</a>
-							</li>
-							<li class="header-burger-nav__item">
-								<a href="https://kapitalno.pro/comingsoon" class="header-burger-nav__link">Дизайн</a>
-							</li>
-							<li class="header-burger-nav__item">
-								<a href="https://kapitalno.pro/comingsoon" class="header-burger-nav__link">О компании</a>
-							</li>
-							<li class="header-burger-nav__item">
-								<a href="https://kapitalno.pro/contacts" class="header-burger-nav__link">Контакты</a>
-							</li>
+							<?php foreach ($burger_menu_items as $menu_item) : ?>
+								<li class="header-burger-nav__item">
+									<a href="<?php echo $menu_item->url; ?>" class="header-burger-nav__link"><?php echo $menu_item->title; ?></a>
+								</li>
+							<?php endforeach; ?>
 						</ul>
 					</nav>
 				</div>
 				<div class="header-burger__content-bottom">
-					<a href="tel:+78124099432" class="header-burger__phone">+7 812 409-94-32</a>
+					<a href="tel:<?php echo $contacts['phone_raw']; ?>" class="header-burger__phone"><?php echo $contacts['phone']; ?></a>
 					<button data-modal-open="callback-1" class="button button--primary header-burger__button">
 						Получить консультацию
 					</button>

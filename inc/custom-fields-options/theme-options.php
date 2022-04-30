@@ -7,46 +7,46 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 // Default options page
-$basic_options_container = Container::make('theme_options', 'kaplitalno_theme_settings',  'Управление контентом')
+$basic_options_container = Container::make('theme_options', 'kapitalno_theme_settings',  'Управление контентом')
 	->add_fields(array(
 		Field::make('header_scripts', 'crb_header_script', 'Header Script'),
 		Field::make('footer_scripts', 'crb_footer_script', 'Footer Script'),
 	));
 
 // Add second options page under 'Basic Options'
-Container::make('theme_options', 'kaplitalno_theme_options', 'Контакты')
+Container::make('theme_options', 'kapitalno_theme_options', 'Контакты')
 	->set_page_parent($basic_options_container) // reference to a top level container
 	->add_tab('Контакты', array(
-		Field::make('text', 'kaplitalno_instagram', 'Instagram')
+		Field::make('text', 'kapitalno_instagram', 'Instagram')
 			->set_width(50),
-		Field::make('text', 'kaplitalno_facebook', 'Facebook')
+		Field::make('text', 'kapitalno_facebook', 'Facebook')
 			->set_width(50),
-		Field::make('text', 'kaplitalno_vk', 'VK')
+		Field::make('text', 'kapitalno_vk', 'VK')
 			->set_width(50),
-		Field::make('text', 'kaplitalno_email', 'Email')
+		Field::make('text', 'kapitalno_email', 'Email')
 			->set_width(50),
-		Field::make('text', 'kaplitalno_phone', 'Телефон')
+		Field::make('text', 'kapitalno_phone', 'Телефон')
 			->set_width(50),
-		Field::make('text', 'kaplitalno_privacy', 'Ссылка на политику конфиденциальности')
+		Field::make('text', 'kapitalno_privacy', 'Ссылка на политику конфиденциальности')
 			->set_width(50),
 	));
 
-Container::make('post_meta', 'kaplitalno_landing', 'Лендинг')
+Container::make('post_meta', 'kapitalno_landing', 'Лендинг')
 	->where('post_id', '=', '6')
 	->add_tab('Заголовки в первом этаже', array(
-		Field::make('complex', 'kaplitalno_typewriter', 'Заголовки')
+		Field::make('complex', 'kapitalno_typewriter', 'Заголовки')
 			->add_fields(array(
-				Field::make('textarea', 'kaplitalno_typewriter_total', 'Весь текст'),
-				Field::make('text', 'kaplitalno_typewriter_find', 'Найти текст'),
-				Field::make('text', 'kaplitalno_typewriter_replace', 'Заменить на')
+				Field::make('textarea', 'kapitalno_typewriter_total', 'Весь текст'),
+				Field::make('text', 'kapitalno_typewriter_find', 'Найти текст'),
+				Field::make('text', 'kapitalno_typewriter_replace', 'Заменить на')
 			))
 	))
 	->add_tab('Освободили от хлопот с ремонтом', array(
-		Field::make('text', 'kaplitalno_help_title', 'Заголовок блока'),
-		Field::make('complex', 'kaplitalno_help', 'Освободили от хлопот с ремонтом')
+		Field::make('text', 'kapitalno_help_title', 'Заголовок блока'),
+		Field::make('complex', 'kapitalno_help', 'Освободили от хлопот с ремонтом')
 			->add_fields(array(
 				Field::make('text', 'kapitalno_help_title', 'Заголовок'),
-				Field::make('complex', 'kaplitalno_help_bullets', 'Буллеты')
+				Field::make('complex', 'kapitalno_help_bullets', 'Буллеты')
 					->add_fields(array(
 						Field::make('text', 'kapitalno_help_bullet', 'Буллет'),
 					)),
@@ -56,7 +56,7 @@ Container::make('post_meta', 'kaplitalno_landing', 'Лендинг')
 			))
 	))
 	->add_tab('Кейсы до-после', array(
-		Field::make('complex', 'kaplitalno_cases', 'Кейсы до-после')
+		Field::make('complex', 'kapitalno_cases', 'Кейсы до-после')
 			->setup_labels(array(
 				'plural_name' => 'кейсы',
 				'singular_name' => 'кейс'
@@ -71,7 +71,7 @@ Container::make('post_meta', 'kaplitalno_landing', 'Лендинг')
 			))
 	))
 	->add_tab('Отзывы', array(
-		Field::make('complex', 'kaplitalno_reviews', 'Отзывы')
+		Field::make('complex', 'kapitalno_reviews', 'Отзывы')
 			->setup_labels(array(
 				'plural_name' => 'отзывы',
 				'singular_name' => 'отзыв'
@@ -82,7 +82,7 @@ Container::make('post_meta', 'kaplitalno_landing', 'Лендинг')
 			))
 	))
 	->add_tab('Создаем резонансные решения', array(
-		Field::make('complex', 'kaplitalno_resonance', 'Создаем резонансные решения')
+		Field::make('complex', 'kapitalno_resonance', 'Создаем резонансные решения')
 			->setup_labels(array(
 				'plural_name' => 'новости',
 				'singular_name' => 'новость'
@@ -95,7 +95,7 @@ Container::make('post_meta', 'kaplitalno_landing', 'Лендинг')
 			))
 	))
 	->add_tab('Специалисты', array(
-		Field::make('complex', 'kaplitalno_masters', 'Специалисты')
+		Field::make('complex', 'kapitalno_masters', 'Специалисты')
 			->setup_labels(array(
 				'plural_name' => 'специалисты',
 				'singular_name' => 'специалисты'
@@ -106,7 +106,7 @@ Container::make('post_meta', 'kaplitalno_landing', 'Лендинг')
 			))
 	))
 	->add_tab('культурно-историческое наследие', array(
-		Field::make('complex', 'kaplitalno_heritate', 'Культурно-историческое наследие')
+		Field::make('complex', 'kapitalno_heritate', 'Культурно-историческое наследие')
 			->setup_labels(array(
 				'plural_name' => 'фото',
 				'singular_name' => 'фото'
