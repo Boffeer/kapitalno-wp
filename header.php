@@ -30,7 +30,7 @@
 		<div class="wrapper header__wrapper">
 			<a href="#" class="header__logo">
 				<picture class="header__logo-pic">
-					<img class="header__logo-img" src="./images/common/logo.svg" alt="Капитально" />
+					<img class="header__logo-img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/common/logo.svg" alt="Капитально" />
 				</picture>
 				<span class="header__logo-desc">
 					ремонт и строительство по технологиям высокого качества
@@ -47,8 +47,8 @@
 			<div class="header-burger__content">
 				<div class="hedaer-buger__content-top">
 					<button class="header-burger__close button--close">Закрыть</button>
-					<a href="#" class="header-burger__logo">
-						<img src="./images/common/logo.svg" alt="Капитально" />
+					<a href="<?php echo get_home_link(); ?>" class="header-burger__logo">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/common/logo.svg" alt="Капитально" />
 					</a>
 					<nav class="header-burger-nav">
 						<ul class="header-burger-nav__list">
@@ -85,37 +85,3 @@
 			</div>
 		</div>
 	</header>
-
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if (is_front_page() && is_home()) :
-			?>
-				<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-			<?php
-			else :
-			?>
-				<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-			<?php
-			endif;
-			$kapitalno_description = get_bloginfo('description', 'display');
-			if ($kapitalno_description || is_customize_preview()) :
-			?>
-				<p class="site-description"><?php echo $kapitalno_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-																		?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'kapitalno'); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->

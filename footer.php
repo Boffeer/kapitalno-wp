@@ -210,7 +210,7 @@
 	<div class="popups-thanks__wrapper">
 		<div class="popups-thanks">
 			<button class="button--close popups-thanks__close"></button>
-			<img src="./images/common/thanks.svg" alt="Спасибо" class="popups-thanks__icon" />
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/common/thanks.svg" alt="Спасибо" class="popups-thanks__icon" />
 
 			<p class="popups-thanks__desc">Спасибо! Данные успешно отправлены.</p>
 		</div>

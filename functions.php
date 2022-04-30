@@ -143,10 +143,16 @@ add_action('widgets_init', 'kapitalno_widgets_init');
  */
 function kapitalno_scripts()
 {
-	wp_enqueue_style('kapitalno-style', get_stylesheet_uri(), array(), _S_VERSION);
+	// wp_enqueue_style('kapitalno-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_enqueue_style('kapitalno-style', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), _S_VERSION);
+	wp_enqueue_style('animate-css', get_stylesheet_directory_uri() . '/assets/css/animate.min.css', array(), _S_VERSION);
+	wp_enqueue_style('swiper-css', get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), _S_VERSION);
 	wp_style_add_data('kapitalno-style', 'rtl', 'replace');
 
-	wp_enqueue_script('kapitalno-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	// wp_enqueue_script('kapitalno-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('swiper-js', get_template_directory_uri() . '/assets/js/swiper-bundle.min.js', array(), _S_VERSION, true);
+	wp_enqueue_script('wow-js', get_template_directory_uri() . '/assets/js/wow.min.js', array(), _S_VERSION, true);
+	wp_enqueue_script('kapitalno-scripts', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');

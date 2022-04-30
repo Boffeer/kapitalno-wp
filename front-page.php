@@ -5,7 +5,7 @@
 			<h1 class="home__title">
 				Делаем ремонт в старом фонде, не отвлекая вас от жизни и бизнеса
 			</h1>
-			<picture class="home__pic"><img src="./images/home/home.jpg" alt="Делаем ремонт любых помещений, не отвлекая вас от жизни и бизнеса" class="home__img" /></picture>
+			<picture class="home__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/home/home.jpg" alt="Делаем ремонт любых помещений, не отвлекая вас от жизни и бизнеса" class="home__img" /></picture>
 			<div class="home__cta">
 				<button data-modal-open="quiz-1" class="button button--primary home__button">
 					Рассчитать стоимость
@@ -20,7 +20,7 @@
 
 	<section class="features">
 		<div class="wrapper features__wrapper">
-			<picture class="features__pic"><img src="./images/features/features.jpg" alt="Как работает Капитально" class="features__img" />
+			<picture class="features__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/features/features.jpg" alt="Как работает Капитально" class="features__img" />
 			</picture>
 			<ul class="features__bullets wow animate__animated animate__fadeIn">
 				<li class="features__bullet">
@@ -54,14 +54,14 @@
 			<div class="wrapper troubles__wrapper">
 				<div class="troubles__bullets">
 					<article class="troubles-bullet">
-						<picture class="troubles-bullet__pic wow animate__animated animate__fadeIn"><img src="./images/troubles/troubles-1.svg" alt="Не понятно с чего начать ремонт помещения" class="troubles-bullet__img" /></picture>
+						<picture class="troubles-bullet__pic wow animate__animated animate__fadeIn"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/troubles/troubles-1.svg" alt="Не понятно с чего начать ремонт помещения" class="troubles-bullet__img" /></picture>
 						<p class="troubles-bullet__desc wow animate__animated animate__fadeIn">
 							Не понятно с чего начать ремонт помещения
 						</p>
 					</article>
 					<article class="troubles-bullet">
 						<picture class="troubles-bullet__pic wow animate__animated animate__fadeIn">
-							<img src="./images/troubles/troubles-2.svg" alt="Не знаете, как выбрать строительные материалы" class="troubles-bullet__img" />
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/troubles/troubles-2.svg" alt="Не знаете, как выбрать строительные материалы" class="troubles-bullet__img" />
 						</picture>
 						<p class="troubles-bullet__desc wow animate__animated animate__fadeIn">
 							Не знаете, как выбрать строительные материалы
@@ -69,7 +69,7 @@
 					</article>
 					<article class="troubles-bullet">
 						<picture class="troubles-bullet__pic wow animate__animated animate__fadeIn">
-							<img src="./images/troubles/troubles-3.svg" alt="Не уверены, что продумали все нюансы в планировке" class="troubles-bullet__img" />
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/troubles/troubles-3.svg" alt="Не уверены, что продумали все нюансы в планировке" class="troubles-bullet__img" />
 						</picture>
 						<p class="troubles-bullet__desc wow animate__animated animate__fadeIn">
 							Не уверены, что&nbsp;продумали все нюансы в&nbsp;планировке
@@ -77,7 +77,7 @@
 					</article>
 					<article class="troubles-bullet">
 						<picture class="troubles-bullet__pic wow animate__animated animate__fadeIn">
-							<img src="./images/troubles/troubles-4.svg" alt="Не доверяете частным строителям и прорабам" class="troubles-bullet__img" />
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/troubles/troubles-4.svg" alt="Не доверяете частным строителям и прорабам" class="troubles-bullet__img" />
 						</picture>
 						<p class="troubles-bullet__desc wow animate__animated animate__fadeIn">
 							Не доверяете частным строителям и&nbsp;прорабам
@@ -85,7 +85,7 @@
 					</article>
 					<article class="troubles-bullet">
 						<picture class="troubles-bullet__pic wow animate__animated animate__fadeIn">
-							<img src="./images/troubles/troubles-5.svg" alt="Тяжело определить стоимость и выделить время" class="troubles-bullet__img" />
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/troubles/troubles-5.svg" alt="Тяжело определить стоимость и выделить время" class="troubles-bullet__img" />
 						</picture>
 						<p class="troubles-bullet__desc wow animate__animated animate__fadeIn">
 							Тяжело определить стоимость и&nbsp;выделить время
@@ -93,7 +93,7 @@
 					</article>
 					<article class="troubles-bullet">
 						<picture class="troubles-bullet__pic wow animate__animated animate__fadeIn">
-							<img src="./images/troubles/troubles-6.svg" alt="" class="troubles-bullet__img" />
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/troubles/troubles-6.svg" alt="" class="troubles-bullet__img" />
 						</picture>
 						<p class="troubles-bullet__desc wow animate__animated animate__fadeIn">
 							Боитесь повредить <br />
@@ -131,7 +131,7 @@
 							<a href="https://kapitalno.pro/renovation" class="button button--primary button--small experience-card__button wow animate__animated animate__fadeIn">Подробнее</a>
 						</div>
 						<picture class="experience-card__pic">
-							<img data-src="./images/experience/old.jpg" alt="Восстановление старого фонда" class="experience-card__img" />
+							<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/experience/old.jpg" alt="Восстановление старого фонда" class="experience-card__img" />
 						</picture>
 					</article>
 					<article class="experience-card">
@@ -149,7 +149,7 @@
 							</ul>
 							<a href="https://kapitalno.pro/houses" class="button button--primary button--small experience-card__button wow animate__animated animate__fadeIn">Подробнее</a>
 						</div>
-						<picture class="experience-card__pic"><img data-src="./images/experience/appartment.jpg" alt="Ремонт квартир и домов" class="experience-card__img" /></picture>
+						<picture class="experience-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/experience/appartment.jpg" alt="Ремонт квартир и домов" class="experience-card__img" /></picture>
 					</article>
 					<article class="experience-card">
 						<div class="experience-card__info">
@@ -166,7 +166,7 @@
 							</ul>
 							<a href="https://kapitalno.pro/forbusiness" class="button button--primary button--small experience-card__button wow animate__animated animate__fadeIn">Подробнее</a>
 						</div>
-						<picture class="experience-card__pic"><img data-src="./images/experience/business.jpg" alt="Ремонт коммерческих помещений" class="experience-card__img" /></picture>
+						<picture class="experience-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/experience/business.jpg" alt="Ремонт коммерческих помещений" class="experience-card__img" /></picture>
 					</article>
 				</div>
 			</div>
@@ -175,7 +175,7 @@
 
 	<section class="design">
 		<div class="design__wrapper wrapper">
-			<picture class="design__pic"><img data-src="./images/design/hero-2.jpg" alt="Продумаем дизайн и сделаем его эргономичным" class="design__img" /></picture>
+			<picture class="design__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/design/hero-2.jpg" alt="Продумаем дизайн и сделаем его эргономичным" class="design__img" /></picture>
 			<div class="design__offer design__offer-title">
 				<h2 class="design__title section__title wow animate__animated animate__fadeIn">
 					Продумаем дизайн <br />
@@ -215,34 +215,34 @@
 				<div class="cases__gallery">
 					<div class="cases-card">
 						<div class="cases-card__front">
-							<picture class="cases-card__pic"><img data-src="./images/cases/after-1.jpg" alt="После" class="cases-card__img" /></picture>
+							<picture class="cases-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/after-1.jpg" alt="После" class="cases-card__img" /></picture>
 						</div>
 						<div class="cases-card__back">
-							<picture class="cases-card__pic"><img src="./images/cases/before-1.jpg" alt="До" class="cases-card__img" /></picture>
+							<picture class="cases-card__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/before-1.jpg" alt="До" class="cases-card__img" /></picture>
 						</div>
 					</div>
 					<div class="cases-card">
 						<div class="cases-card__front">
-							<picture class="cases-card__pic"><img data-src="./images/cases/after-2.jpg" alt="После" class="cases-card__img" /></picture>
+							<picture class="cases-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/after-2.jpg" alt="После" class="cases-card__img" /></picture>
 						</div>
 						<div class="cases-card__back">
-							<picture class="cases-card__pic"><img src="./images/cases/before-2.jpg" alt="До" class="cases-card__img" /></picture>
+							<picture class="cases-card__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/before-2.jpg" alt="До" class="cases-card__img" /></picture>
 						</div>
 					</div>
 					<div class="cases-card">
 						<div class="cases-card__front">
-							<picture class="cases-card__pic"><img data-src="./images/cases/after-3.jpg" alt="После" class="cases-card__img" /></picture>
+							<picture class="cases-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/after-3.jpg" alt="После" class="cases-card__img" /></picture>
 						</div>
 						<div class="cases-card__back">
-							<picture class="cases-card__pic"><img src="./images/cases/before-3.jpg" alt="До" class="cases-card__img" /></picture>
+							<picture class="cases-card__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/before-3.jpg" alt="До" class="cases-card__img" /></picture>
 						</div>
 					</div>
 					<div class="cases-card">
 						<div class="cases-card__front">
-							<picture class="cases-card__pic"><img data-src="./images/cases/after-4.jpg" alt="После" class="cases-card__img" /></picture>
+							<picture class="cases-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/after-4.jpg" alt="После" class="cases-card__img" /></picture>
 						</div>
 						<div class="cases-card__back">
-							<picture class="cases-card__pic"><img src="./images/cases/before-4.jpg" alt="До" class="cases-card__img" /></picture>
+							<picture class="cases-card__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/before-4.jpg" alt="До" class="cases-card__img" /></picture>
 						</div>
 					</div>
 				</div>
@@ -407,8 +407,8 @@
 				</ul>
 			</div>
 			<div class="results__gallery">
-				<picture class="results__pic"><img data-src="./images/results/results-2.jpg" alt="Капитально" class="results__img" /></picture>
-				<picture class="results__pic"><img data-src="./images/results/results-1.jpg" alt="Капитально" class="results__img" /></picture>
+				<picture class="results__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/results/results-2.jpg" alt="Капитально" class="results__img" /></picture>
+				<picture class="results__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/results/results-1.jpg" alt="Капитально" class="results__img" /></picture>
 			</div>
 		</div>
 	</section>
@@ -425,7 +425,7 @@
 				<div class="masters__gallery">
 					<article class="masters-card">
 						<picture class="masters-card__pic">
-							<img data-src="./images/masters/bukin.jpg" alt="Сергей Букин - Архитектор-дизайнер" class="masters-card__img" />
+							<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/masters/bukin.jpg" alt="Сергей Букин - Архитектор-дизайнер" class="masters-card__img" />
 						</picture>
 						<h3 class="masters-card__name">Сергей Букин</h3>
 						<p class="masters-card__post masters-card__desc">
@@ -439,7 +439,7 @@
 					</article>
 					<article class="masters-card">
 						<picture class="masters-card__pic">
-							<img data-src="./images/masters/tolstova.png" alt="Эльвира Толстова - Финансист-секретарь" class="masters-card__img" />
+							<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/masters/tolstova.png" alt="Эльвира Толстова - Финансист-секретарь" class="masters-card__img" />
 						</picture>
 						<h3 class="masters-card__name">Эльвира Толстова</h3>
 						<p class="masters-card__post masters-card__desc">
@@ -452,7 +452,7 @@
 					</article>
 					<article class="masters-card">
 						<picture class="masters-card__pic">
-							<img data-src="./images/masters/golovachev.png" alt="Александр Головачёв - Электрик" class="masters-card__img" />
+							<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/masters/golovachev.png" alt="Александр Головачёв - Электрик" class="masters-card__img" />
 						</picture>
 						<h3 class="masters-card__name">Александр Головачёв</h3>
 						<p class="masters-card__post masters-card__desc">Электрик</p>
@@ -486,7 +486,7 @@
 					<article class="news-card">
 						<a href="https://www.elledecoration.ru/interior/flats/kvartira-55-m-v-peterburgskom-dome-1926-go-goda/" class="news-card__pic-link">
 							<picture class="news-card__pic">
-								<img data-src="./images/news/news-1.jpg" alt="" class="news-card__img" />
+								<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/news/news-1.jpg" alt="" class="news-card__img" />
 							</picture>
 						</a>
 						<p class="news-card__excerpt">
@@ -499,7 +499,7 @@
 					<article class="news-card">
 						<a href="https://www.admagazine.ru/article/kvartira-v-dome-xix-veka-po-proektu-anastasii-halchickoj-77" class="news-card__pic-link">
 							<picture class="news-card__pic">
-								<img data-src="./images/news/news-2.jpg" alt="" class="news-card__img" />
+								<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/news/news-2.jpg" alt="" class="news-card__img" />
 							</picture>
 						</a>
 						<p class="news-card__excerpt">
@@ -528,14 +528,14 @@
 			<div class="wrapper heritate__wrapper">
 				<div class="heritate__gallery">
 					<article class="heritate-card">
-						<picture class="heritate-card__pic"><img data-src="./images/heritate/certificate.jpg" alt="Лицензия СРО" class="heritate-card__img" />
+						<picture class="heritate-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/heritate/certificate.jpg" alt="Лицензия СРО" class="heritate-card__img" />
 						</picture>
 						<p class="heritate-card__desc wow animate__animated animate__fadeIn">
 							Лицензия СРО
 						</p>
 					</article>
 					<article class="heritate-card">
-						<picture class="heritate-card__pic"><img data-src="./images/heritate/license.jpg" alt="Лицензия Министерства культуры" class="heritate-card__img" />
+						<picture class="heritate-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/heritate/license.jpg" alt="Лицензия Министерства культуры" class="heritate-card__img" />
 						</picture>
 						<p class="heritate-card__desc wow animate__animated animate__fadeIn">
 							Лицензия <br />Министерства культуры
@@ -543,7 +543,7 @@
 						</p>
 					</article>
 					<article class="heritate-card">
-						<picture class="heritate-card__pic"><img data-src="./images/heritate/3.jpg" alt="" class="heritate-card__img" />
+						<picture class="heritate-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/heritate/3.jpg" alt="" class="heritate-card__img" />
 						</picture>
 					</article>
 				</div>

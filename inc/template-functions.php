@@ -38,3 +38,12 @@ function kapitalno_pingback_header()
 	}
 }
 add_action('wp_head', 'kapitalno_pingback_header');
+
+function get_home_link()
+{
+	if (is_front_page()) {
+		return home_url();
+	} else {
+		return '#';
+	}
+}
