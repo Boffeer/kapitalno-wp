@@ -139,6 +139,7 @@ fixedCalbackButton.addEventListener("click", () => {
 /**
  * @quiz
  */
+// #region quiz and validators
 let quizSlider = new Swiper(".quiz__steps", {
   allowSlideNext: false,
   allowSlidePrev: false,
@@ -340,6 +341,7 @@ quizSlider.on("slideChange", function () {
     buttonSubmit.classList.remove("quiz__button-submit--visible");
   }
 });
+// #endregion quiz and validators
 
 // #region phone
 const telephoneInputs = document.querySelectorAll('input[type="tel"]');
@@ -419,6 +421,7 @@ function validatePhone(phoneInput) {
 }
 // #endregion phone
 
+// #region forms
 const quizForm = document.querySelector(".quiz__form");
 
 quizForm.addEventListener("submit", (event) => {
@@ -525,6 +528,7 @@ snackForms.forEach(function (form) {
     // console.log(formDataObj);
   });
 });
+// #endregion forms
 
 // @burger
 const burger = document.querySelector(".header__burger");
@@ -684,9 +688,3 @@ if (scrollToTopButton) {
     }
   });
 }
-
-// typeWriterSetup.forEach((type, index) => {
-//   let indexes = findStringsDiffsIndexes(type);
-//   let typeWriterState = repalceStringDiffs(type, indexes);
-//   console.log(typeWriterState);
-// });
