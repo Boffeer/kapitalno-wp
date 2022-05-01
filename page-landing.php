@@ -1,12 +1,18 @@
 <?php get_header(); ?>
 <main class="main">
 
+	<?php $contacts = get_crb_contacts(); ?>
+
+
 	<section class="home section--regular">
+		<?php
+		$typewriter = carbon_get_post_meta(get_the_ID(), 'kapitalno_typewriter');
+		?>
 		<div class="home__wrapper wrapper">
 			<h1 class="home__title">
-				Делаем ремонт в старом фонде, не отвлекая вас от жизни и бизнеса
+				<?php echo $typewriter[0]['kapitalno_typewriter_total']; ?>
 			</h1>
-			<picture class="home__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/home/home.jpg" alt="Делаем ремонт любых помещений, не отвлекая вас от жизни и бизнеса" class="home__img" /></picture>
+			<picture class="home__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/home/home.jpg" alt="<?php echo $typewriter[0]['kapitalno_typewriter_total']; ?>" class="home__img" /></picture>
 			<div class="home__cta">
 				<button data-modal-open="quiz-1" class="button button--primary home__button">
 					Рассчитать стоимость
@@ -19,26 +25,13 @@
 		</div>
 		<script>
 			const homeTitle = document.querySelector(".home__title");
-			const typeWriterSetup = [{
-					text: "Делаем ремонт в старом фонде, не отвлекая вас от жизни и бизнеса",
-					find: "старом фонде",
-					replace: "первичном фонде",
-				},
-				{
-					text: "Делаем ремонт в первичном фонде, не отвлекая вас от жизни и бизнеса",
-					find: "первичном фонде, не отвлекая вас от жизни и бизнеса",
-					replace: "коммерческой недвижимости от офисов до производств",
-				},
-				{
-					text: "Делаем ремонт в коммерческой недвижимости от офисов до производств",
-					find: "Делаем ремонт в коммерческой недвижимости от офисов до производств",
-					replace: "Строим дома и делаем в них ремонт, не отвлекая вас от жизни и бизнеса",
-				},
-				{
-					text: "Строим дома и делаем в них ремонт, не отвлекая вас от жизни и бизнеса",
-					find: "Строим дома и делаем в них ремонт, не отвлекая вас от жизни и бизнеса",
-					replace: "Делаем ремонт в старом фонде, не отвлекая вас от жизни и бизнеса",
-				},
+			const typeWriterSetup = [
+				<?php foreach ($typewriter as $title) : ?> {
+						text: "<?php echo $title['kapitalno_typewriter_total']; ?>",
+						find: "<?php echo $title['kapitalno_typewriter_find']; ?>",
+						replace: "<?php echo $title['kapitalno_typewriter_replace']; ?>",
+					},
+				<?php endforeach; ?>
 			];
 			let typeWriterIndex = 0;
 
@@ -218,68 +211,38 @@
 	</section>
 
 	<section class="experience">
+		<?php
+		$experience_title = carbon_get_post_meta(get_the_ID(), 'kapitalno_experience_title');
+		$experience = carbon_get_post_meta(get_the_ID(), 'kapitalno_experience');
+		?>
 		<div class="wrapper section__title-wrapper">
 			<h2 class="section__title experience__title wow animate__animated animate__fadeIn">
-				Освободили от хлопот <br />
-				с ремонтом 130+ клиентов
+				<?php echo nl2br($experience_title); ?>
 			</h2>
 		</div>
 		<div class="experience__inner">
 			<div class="wrapper experience__wrapper">
 				<div class="experience__gallery">
-					<article class="experience-card">
-						<div class="experience-card__info">
-							<h3 class="experience-card__title wow animate__animated animate__fadeIn">
-								Cтарый фонд
-							</h3>
-							<ul class="experience-card__bullets bullets__list">
-								<li class="experience-card__bullet bullets__item wow animate__animated animate__fadeIn">
-									Восстановление старого фонда
-								</li>
-								<li class="experience-card__bullet bullets__item wow animate__animated animate__fadeIn">
-									Экспертиза перед покупкой
-								</li>
-							</ul>
-							<a href="https://kapitalno.pro/renovation" class="button button--primary button--small experience-card__button wow animate__animated animate__fadeIn">Подробнее</a>
-						</div>
-						<picture class="experience-card__pic">
-							<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/experience/old.jpg" alt="Восстановление старого фонда" class="experience-card__img" />
-						</picture>
-					</article>
-					<article class="experience-card">
-						<div class="experience-card__info">
-							<h3 class="experience-card__title wow animate__animated animate__fadeIn">
-								Квартиры и дома
-							</h3>
-							<ul class="experience-card__bullets bullets__list">
-								<li class="experience-card__bullet bullets__item wow animate__animated animate__fadeIn">
-									Ремонт квартир и домов
-								</li>
-								<li class="experience-card__bullet bullets__item wow animate__animated animate__fadeIn">
-									Согласование ремонта и планировок
-								</li>
-							</ul>
-							<a href="https://kapitalno.pro/houses" class="button button--primary button--small experience-card__button wow animate__animated animate__fadeIn">Подробнее</a>
-						</div>
-						<picture class="experience-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/experience/appartment.jpg" alt="Ремонт квартир и домов" class="experience-card__img" /></picture>
-					</article>
-					<article class="experience-card">
-						<div class="experience-card__info">
-							<h3 class="experience-card__title wow animate__animated animate__fadeIn">
-								Для бизнеса
-							</h3>
-							<ul class="experience-card__bullets bullets__list">
-								<li class="experience-card__bullet bullets__item wow animate__animated animate__fadeIn">
-									Ремонт коммерческих помещений
-								</li>
-								<li class="experience-card__bullet bullets__item wow animate__animated animate__fadeIn">
-									Согласование ремонта и планировок
-								</li>
-							</ul>
-							<a href="https://kapitalno.pro/forbusiness" class="button button--primary button--small experience-card__button wow animate__animated animate__fadeIn">Подробнее</a>
-						</div>
-						<picture class="experience-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/experience/business.jpg" alt="Ремонт коммерческих помещений" class="experience-card__img" /></picture>
-					</article>
+					<?php foreach ($experience as $service) : ?>
+						<article class="experience-card">
+							<div class="experience-card__info">
+								<h3 class="experience-card__title wow animate__animated animate__fadeIn">
+									<?php echo $service['kapitalno_experience_title']; ?>
+								</h3>
+								<ul class="experience-card__bullets bullets__list">
+									<?php foreach ($service['kapitalno_experience_bullets'] as $bullet) : ?>
+										<li class="experience-card__bullet bullets__item wow animate__animated animate__fadeIn">
+											<?php echo $bullet['kapitalno_experience_bullet']; ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+								<a href="<?php echo $service['kapitalno_experience_link']; ?>" class="button button--primary button--small experience-card__button wow animate__animated animate__fadeIn">Подробнее</a>
+							</div>
+							<picture class="experience-card__pic">
+								<img data-src="<?php echo $service['kapitalno_experience_image']; ?>" alt="<?php echo $service['kapitalno_experience_title']; ?>" class="experience-card__img" />
+							</picture>
+						</article>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
@@ -314,6 +277,7 @@
 	</section>
 
 	<section class="cases">
+		<?php $cases = carbon_get_post_meta(get_the_ID(), 'kapitalno_cases'); ?>
 		<div class="wrapper section__title-wrapper">
 			<h2 class="section__title cases__title wow animate__animated animate__fadeIn">
 				Капитально преобразим <br />
@@ -325,38 +289,16 @@
 		<div class="cases__inner">
 			<div class="cases__wrapper">
 				<div class="cases__gallery">
-					<div class="cases-card">
-						<div class="cases-card__front">
-							<picture class="cases-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/after-1.jpg" alt="После" class="cases-card__img" /></picture>
+					<?php foreach ($cases as $case) : ?>
+						<div class="cases-card">
+							<div class="cases-card__front">
+								<picture class="cases-card__pic"><img data-src="<?php echo $case['kapitalno_cases_after']; ?>" alt="После" class="cases-card__img" /></picture>
+							</div>
+							<div class="cases-card__back">
+								<picture class="cases-card__pic"><img src="<?php echo $case['kapitalno_cases_before']; ?>" alt="До" class="cases-card__img" /></picture>
+							</div>
 						</div>
-						<div class="cases-card__back">
-							<picture class="cases-card__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/before-1.jpg" alt="До" class="cases-card__img" /></picture>
-						</div>
-					</div>
-					<div class="cases-card">
-						<div class="cases-card__front">
-							<picture class="cases-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/after-2.jpg" alt="После" class="cases-card__img" /></picture>
-						</div>
-						<div class="cases-card__back">
-							<picture class="cases-card__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/before-2.jpg" alt="До" class="cases-card__img" /></picture>
-						</div>
-					</div>
-					<div class="cases-card">
-						<div class="cases-card__front">
-							<picture class="cases-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/after-3.jpg" alt="После" class="cases-card__img" /></picture>
-						</div>
-						<div class="cases-card__back">
-							<picture class="cases-card__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/before-3.jpg" alt="До" class="cases-card__img" /></picture>
-						</div>
-					</div>
-					<div class="cases-card">
-						<div class="cases-card__front">
-							<picture class="cases-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/after-4.jpg" alt="После" class="cases-card__img" /></picture>
-						</div>
-						<div class="cases-card__back">
-							<picture class="cases-card__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/cases/before-4.jpg" alt="До" class="cases-card__img" /></picture>
-						</div>
-					</div>
+					<?php endforeach; ?>
 				</div>
 				<div class="cases__cta">
 					<p class="cases__cta-desc wow animate__animated animate__fadeIn">
@@ -369,6 +311,9 @@
 	</section>
 
 	<section class="reviews">
+		<?php
+		$reviews = carbon_get_post_meta(get_the_ID(), 'kapitalno_reviews');
+		?>
 		<div class="wrapper reviews__wrapper section__title-wrapper">
 			<h2 class="section__title reviews__title wow animate__animated animate__fadeIn">
 				Результат наших работ <br />
@@ -378,39 +323,16 @@
 		<div class="reviews__inner">
 			<div class="wrapper reviews__wrapper">
 				<div class="reviews__gallery">
-					<article class="reviews-card">
-						<h3 class="reviews-card__name">Павел</h3>
-						<p class="reviews-card__feedback">
-							Были полностью снесены старые конструкции, сделана
-							перепланировка, удалось вписать в относительно небольшой объем
-							еще и стиральную машину в ванную комнату. Стены были
-							облицованы керамогранитом. Когда по&nbsp;гарантии сломался
-							насос специалисты компании его оперативно заменили. Всем
-							рекомендую.
-						</p>
-					</article>
-					<article class="reviews-card">
-						<h3 class="reviews-card__name">Анастасия</h3>
-						<p class="reviews-card__feedback">
-							Компания производила для меня <br />ремонт одной комнаты в
-							коммунальной квартире. Все работы заняли чуть меньше месяца,
-							что было принципиально важно для меня. Целью было сделать
-							чистую белую комнату в&nbsp;скандинавском стиле. Результат
-							превзошел все ожидания.
-						</p>
-					</article>
-					<article class="reviews-card">
-						<h3 class="reviews-card__name">Сергей</h3>
-						<p class="reviews-card__feedback">
-							Компания выполняла полный ремонт в&nbsp;нашей квартире в
-							старом фонде: от&nbsp;демонтажа до чистовой отделки.
-							Профессионализм исполнителей, внимательное отношение
-							руководителей к пожеланиям заказчика, отсутствие нерешаемых
-							задач, в&nbsp;сочетании с разумными сроками и&nbsp;бюджетом —
-							вот что позволит Вам насладиться процессом преображения Вашей
-							квартиры. Рекомендую не&nbsp;сомневаясь.
-						</p>
-					</article>
+					<?php foreach ($reviews as $review) : ?>
+						<article class="reviews-card">
+							<h3 class="reviews-card__name">
+								<?php echo $review['kapitalno_reviews_name']; ?>
+							</h3>
+							<p class="reviews-card__feedback">
+								<?php echo nl2br($review['kapitalno_reviews_feedback']); ?>
+							</p>
+						</article>
+					<?php endforeach; ?>
 				</div>
 				<div class="reviews__more">
 					Читайте больше отзывов на
@@ -532,46 +454,28 @@
 				позаботятся о вашем проекте
 			</h2>
 		</div>
+		<?php
+		$masters = carbon_get_post_meta(get_the_ID(), 'kapitalno_masters');
+		?>
 		<div class="masters__inner">
 			<div class="wrapper masters__wrapper">
 				<div class="masters__gallery">
-					<article class="masters-card">
-						<picture class="masters-card__pic">
-							<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/masters/bukin.jpg" alt="Сергей Букин - Архитектор-дизайнер" class="masters-card__img" />
-						</picture>
-						<h3 class="masters-card__name">Сергей Букин</h3>
-						<p class="masters-card__post masters-card__desc">
-							Архитектор-дизайнер
-						</p>
-						<p class="masters-card__desc">
-							Совмещает в дизайн-проекте стиль
-							<br />
-							и качество
-						</p>
-					</article>
-					<article class="masters-card">
-						<picture class="masters-card__pic">
-							<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/masters/tolstova.png" alt="Эльвира Толстова - Финансист-секретарь" class="masters-card__img" />
-						</picture>
-						<h3 class="masters-card__name">Эльвира Толстова</h3>
-						<p class="masters-card__post masters-card__desc">
-							Финансист-секретарь
-						</p>
-						<p class="masters-card__desc">
-							Помогает проводить все финансовые операции уверенно, быстро и
-							точно
-						</p>
-					</article>
-					<article class="masters-card">
-						<picture class="masters-card__pic">
-							<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/masters/golovachev.png" alt="Александр Головачёв - Электрик" class="masters-card__img" />
-						</picture>
-						<h3 class="masters-card__name">Александр Головачёв</h3>
-						<p class="masters-card__post masters-card__desc">Электрик</p>
-						<p class="masters-card__desc">
-							Главный по свету. Установит все приборы, розетки, кабели
-						</p>
-					</article>
+					<?php foreach ($masters as $master) : ?>
+						<article class="masters-card">
+							<picture class="masters-card__pic">
+								<img data-src="<?php echo $master['kapitalno_masters_photo']; ?>" alt="<?php echo $master['kapitalno_masters_name'] ?> — <?php echo $amster['kapitalno_masters_post'] ?>" class="masters-card__img" />
+							</picture>
+							<h3 class="masters-card__name">
+								<?php echo $master['kapitalno_masters_name']; ?>
+							</h3>
+							<p class="masters-card__post masters-card__desc">
+								<?php echo $master['kapitalno_masters_post']; ?>
+							</p>
+							<p class="masters-card__desc">
+								<?php echo nl2br($master['kapitalno_masters_description']); ?>
+							</p>
+						</article>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
@@ -595,33 +499,24 @@
 		<div class="news__inner">
 			<div class="wrapper news__wrapper">
 				<div class="news__gallery">
-					<article class="news-card">
-						<a href="https://www.elledecoration.ru/interior/flats/kvartira-55-m-v-peterburgskom-dome-1926-go-goda/" class="news-card__pic-link">
-							<picture class="news-card__pic">
-								<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/news/news-1.jpg" alt="" class="news-card__img" />
-							</picture>
-						</a>
-						<p class="news-card__excerpt">
-							<a href="https://www.elledecoration.ru/interior/flats/kvartira-55-m-v-peterburgskom-dome-1926-go-goda/" class="news-card__link">«Вместо печки-буржуйки появился модный поворотный
-								камин...При этом в каждой детали ощущается исторический дух
-								места»</a>
-						</p>
-						<a href="https://www.elledecoration.ru/interior/flats/kvartira-55-m-v-peterburgskom-dome-1926-go-goda/" class="button button--primary button--small news-card__button">Читать</a>
-					</article>
-					<article class="news-card">
-						<a href="https://www.admagazine.ru/article/kvartira-v-dome-xix-veka-po-proektu-anastasii-halchickoj-77" class="news-card__pic-link">
-							<picture class="news-card__pic">
-								<img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/news/news-2.jpg" alt="" class="news-card__img" />
-							</picture>
-						</a>
-						<p class="news-card__excerpt">
-							<a href="https://www.admagazine.ru/article/kvartira-v-dome-xix-veka-po-proektu-anastasii-halchickoj-77" class="news-card__link">«Нужно было воссоздать тот самый дух Петербурга, который
-								когда-то царил в этой квартире…Во время демонтажа почти во
-								всех комнатах нашлись ниши, в одной из них дизайнер сделала
-								бар»</a>
-						</p>
-						<a href="https://www.admagazine.ru/article/kvartira-v-dome-xix-veka-po-proektu-anastasii-halchickoj-77" class="button button--primary button--small news-card__button">Читать</a>
-					</article>
+					<?php
+					$news = carbon_get_post_meta(get_the_ID(), 'kapitalno_resonance');
+					?>
+					<?php foreach ($news as $article) : ?>
+						<article class="news-card">
+							<a href="<?php echo $article['kapitalno_resonance_url']; ?>" class="news-card__pic-link">
+								<picture class="news-card__pic">
+									<img data-src="<?php echo $article['kapitalno_resonance_image']; ?>" alt="<?php echo $article['kapitalno_resonance_title']; ?>" class="news-card__img" />
+								</picture>
+							</a>
+							<p class="news-card__excerpt">
+								<a href="<?php echo $article['kapitalno_resonance_url']; ?>" class="news-card__link">
+									<?php echo $article['kapitalno_resonance_title']; ?>
+								</a>
+							</p>
+							<a href="<?php echo $article['kapitalno_resonance_url']; ?>" class="button button--primary button--small news-card__button">Читать</a>
+						</article>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
@@ -638,26 +533,31 @@
 		</div>
 		<div class="heritate__inner">
 			<div class="wrapper heritate__wrapper">
+				<?php
+				$heritate = carbon_get_post_meta(get_the_ID(), 'kapitalno_heritate');
+				?>
 				<div class="heritate__gallery">
-					<article class="heritate-card">
-						<picture class="heritate-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/heritate/certificate.jpg" alt="Лицензия СРО" class="heritate-card__img" />
-						</picture>
-						<p class="heritate-card__desc wow animate__animated animate__fadeIn">
-							Лицензия СРО
-						</p>
-					</article>
-					<article class="heritate-card">
-						<picture class="heritate-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/heritate/license.jpg" alt="Лицензия Министерства культуры" class="heritate-card__img" />
-						</picture>
-						<p class="heritate-card__desc wow animate__animated animate__fadeIn">
-							Лицензия <br />Министерства культуры
-							<span class="heritate-card__tooltip tooltip" data-tooltip="Как получить лицензию">i</span>
-						</p>
-					</article>
-					<article class="heritate-card">
-						<picture class="heritate-card__pic"><img data-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/heritate/3.jpg" alt="" class="heritate-card__img" />
-						</picture>
-					</article>
+
+					<?php foreach ($heritate as $card) : ?>
+						<?php
+						if ($card['kapitalno_heritate_caption'] == '') {
+							$default_caption = 'kapitalno.pro';
+							$card['kapitalno_heritate_caption'] = $default_caption;
+						}
+						?>
+						<article class="heritate-card">
+							<picture class="heritate-card__pic"><img data-src="<?php echo $card['kapitalno_heritate_image']; ?>" alt="<?php echo $card['kapitalno_heritate_caption']; ?>" class="heritate-card__img" />
+							</picture>
+							<?php if ($card['kapitalno_heritate_caption'] != '' && $card['kapitalno_heritate_caption'] != $default_caption) : ?>
+								<p class="heritate-card__desc wow animate__animated animate__fadeIn">
+									<?php echo nl2br($card['kapitalno_heritate_caption']); ?>
+									<?php if ($card['kapitalno_heritate_tooltip'] != '') : ?>
+										<span class="heritate-card__tooltip tooltip" data-tooltip="<?php echo $card['kapitalno_heritate_tooltip']; ?>">i</span>
+									<?php endif; ?>
+								</p>
+							<?php endif; ?>
+						</article>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
@@ -681,12 +581,12 @@
 					удобным способом
 				</h3>
 				<div class="consult__contacts">
-					<a href="tel:+78124099432" class="consult__contact link--phone">+7 812 409-94-32</a>
-					<a href="mailto:info@kapitalno.pro" class="consult__contact link--email">info@kapitalno.pro</a>
+					<a href="tel:<?php echo $contacts['phone_raw']; ?>" class="consult__contact link--phone"><?php echo $contacts['phone'] ?></a>
+					<a href="mailto:<?php echo $contacts['email']; ?>" class="consult__contact link--email"><?php echo $contacts['email']; ?></a>
 				</div>
 			</div>
 			<div class="consult__form-wrap">
-				<form action="" class="consult__form animate__zoomOut">
+				<form class="consult__form animate__zoomOut">
 					<label class="input__field">
 						<input type="text" name="user_name" min="2" max="50" placeholder="Имя" class="input consult__input" />
 						<small class="input__error error-text"></small>
