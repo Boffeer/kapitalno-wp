@@ -1,7 +1,6 @@
 new WOW().init();
 
 lazyLoading(800);
-
 function lazyLoading(distance) {
   const imgElems = document.querySelectorAll("[data-src]");
   const windowHeight = window.innerHeight;
@@ -21,6 +20,11 @@ function lazyLoading(distance) {
   }
 }
 
+function sendFormData() {
+  // Функция вызывается при валидной форме
+}
+
+//#region PlatformDetect
 // Get os class for body. It used to fix macos scrollbar issue
 let os = "Unknown";
 if (navigator.appVersion.indexOf("Win") != -1) os = "windows";
@@ -28,6 +32,7 @@ if (navigator.appVersion.indexOf("Mac") != -1) os = "macos";
 if (navigator.appVersion.indexOf("X11") != -1) os = "unix";
 if (navigator.appVersion.indexOf("Linux") != -1) os = "linux";
 document.body.classList.add("os-" + os);
+//#endregion PlatformDetect
 
 function bodyLock(con) {
   const scrollFix = window.innerWidth - document.body.clientWidth + "px";
@@ -50,52 +55,14 @@ function bodyLock(con) {
   }
 }
 
-// @typewriter
-const typewriterTexts = [
-  "Делаем ремонт в старом фонде, не отвлекая вас от жизни и бизнеса",
-  "Делаем ремонт в первичном фонде, не отвлекая вас от жизни и бизнеса",
-  "Делаем ремонт в коммерческой недвижимости от офисов до производств",
-  "Строим дома и делаем в них ремонт, не отвлекая вас от жизни и бизнеса",
-];
-
-let currentType = 0;
-let titleText = typewriterTexts[currentType];
-let titleTextArray = titleText.split("");
-const typewriter = () => {
-  if (
-    titleTextArray.length > 0 &&
-    homeTitle.innerHTML.length < titleText.length
-  ) {
-    homeTitle.innerHTML += titleTextArray.shift();
-    setTimeout(typewriter, 35);
-  } else {
-    currentType++;
-    titleText = typewriterTexts[currentType];
-    titleTextArray = titleText.split("");
-    // console.log("currentType", currentType);
-    setTimeout(delteText, 2000);
-  }
-};
-const delteText = () => {
-  if (currentType === typewriterTexts.length - 1) {
-    currentType = -1;
-    // console.log("currentType reset", currentType);
-  }
-  if (homeTitle.innerHTML.length > 0) {
-    homeTitle.innerHTML = homeTitle.innerHTML.slice(0, -1);
-    setTimeout(delteText, 10);
-  } else {
-    setTimeout(typewriter, 10);
-  }
-};
-// typewriter(titleTextArray);
-// @/typewriter
-
 /**
  *
  * @param {string} modal.button
- * @param {string} modal.modal
- * @param {string} modal.closer
+ * @param {string} modal.modal 'css class selector'
+ * @param {string} modal.closer 'css class selector
+ * @param {string} modal.isSnack if true, there is no modal closing on click beyond modal
+ * @param {string} modal.buttonOpenedClass
+ * @param {string} modal.openedClass
  *
  */
 function modalToggler(modal) {
@@ -164,7 +131,6 @@ let thanksPopup = modalToggler({
   closer: ".popups-thanks__close",
   openedClass: "popups-thanks--visible",
 });
-
 const fixedCalbackButton = document.querySelector(".callback-fixed__button");
 fixedCalbackButton.addEventListener("click", () => {
   document.querySelector(".callback-fixed__input").focus();
@@ -375,6 +341,7 @@ quizSlider.on("slideChange", function () {
   }
 });
 
+// #region phone
 const telephoneInputs = document.querySelectorAll('input[type="tel"]');
 const prefixNumber = (str) => {
   if (str === "7") {
@@ -450,6 +417,7 @@ function validatePhone(phoneInput) {
     return true;
   }
 }
+// #endregion phone
 
 const quizForm = document.querySelector(".quiz__form");
 
@@ -463,8 +431,8 @@ quizForm.addEventListener("submit", (event) => {
 
   let isTextValid = validateTextField(getCurrentQuizPageElement(quizSlider));
   let isPhoneValid = validatePhone(phone);
-  console.log(isCheckboxesValid, isTextValid, isPhoneValid);
   if ((isCheckboxesValid, isTextValid, isPhoneValid)) {
+    sendFormData();
     quizForm.classList.add("animate__animated");
     setTimeout(() => {
       quizForm.classList.add("quiz__form--hidden");
@@ -481,7 +449,7 @@ quizForm.addEventListener("submit", (event) => {
   }
 });
 
-const popForms = [".callback-fixed__form "];
+const snackForms = [".callback-fixed__form"];
 const regularForms = [".pop-callback__form", ".consult__form"];
 regularForms.forEach(function (form) {
   const formElement = document.querySelector(form);
@@ -500,6 +468,7 @@ regularForms.forEach(function (form) {
     if (!(isCheckboxesValid && isTextValid && isPhoneValid)) {
       return;
     }
+    sendFormData();
     formElement.classList.add("animate__animated");
     setTimeout(() => {
       formElement.classList.add("element--hidden");
@@ -521,7 +490,7 @@ regularForms.forEach(function (form) {
   });
 });
 
-popForms.forEach(function (form) {
+snackForms.forEach(function (form) {
   const formElement = document.querySelector(form);
   formElement.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -545,7 +514,9 @@ popForms.forEach(function (form) {
       formElement.querySelector(".button--close").click();
     }
 
+    sendFormData();
     thanksPopup.openModal();
+
     // const formData = new URLSearchParams(new FormData(formElement));
     // const formDataObj = {};
     // for (const pair of formData.entries()) {
@@ -554,6 +525,7 @@ popForms.forEach(function (form) {
     // console.log(formDataObj);
   });
 });
+
 // @burger
 const burger = document.querySelector(".header__burger");
 const headerBurger = document.querySelector(".header-burger");
@@ -574,6 +546,7 @@ headerBurger.addEventListener("click", (event) => {
   }
 });
 
+// #region topverstka modal
 // Открытие модального окна, если в url указан его id
 openModalHash();
 function openModalHash() {
@@ -693,6 +666,7 @@ function closeWhenClickingOnBg(itemArray, itemParent, classShow = "_show") {
     }
   });
 }
+// #endregion
 
 const scrollToTopButton = document.querySelector(".scroll__top");
 if (scrollToTopButton) {
