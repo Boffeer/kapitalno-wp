@@ -13,7 +13,7 @@ function lazyLoading(distance) {
       let img = imgElems[i];
       const top = img.getBoundingClientRect().top;
 
-      if (top - windowHeight <= distance) {
+      if (top - windowHeight <= distance && img.src == "") {
         img.setAttribute("src", img.dataset.src);
       }
     }

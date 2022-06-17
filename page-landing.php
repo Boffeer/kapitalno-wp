@@ -12,7 +12,10 @@
 			<h1 class="home__title">
 				<?php echo $typewriter[0]['kapitalno_typewriter_total']; ?>
 			</h1>
-			<picture class="home__pic"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/home/home.jpg" alt="<?php echo $typewriter[0]['kapitalno_typewriter_total']; ?>" class="home__img" /></picture>
+			<picture class="home__pic">
+				<!-- <source srcset="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/home/home.webp" type="image/webp"> -->
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/home/home.jpg" alt="<?php echo $typewriter[0]['kapitalno_typewriter_total']; ?>" class="home__img" />
+			</picture>
 			<div class="home__cta">
 				<button data-modal-open="quiz-1" class="button button--primary home__button">
 					Рассчитать стоимость
@@ -277,7 +280,17 @@
 	</section>
 
 	<section class="cases">
-		<?php $cases = carbon_get_post_meta(get_the_ID(), 'kapitalno_cases'); ?>
+		<?php
+		$cases_raw = carbon_get_post_meta(get_the_ID(), 'kapitalno_cases');
+		$cases = array();
+		$cases_floors_counter = 0;
+		foreach ($cases_raw as $key => $case) {
+			if ($key % 4 == 0) {
+				$cases_floors_counter++;
+			}
+			$cases[$cases_floors_counter][] = $case;
+		}
+		?>
 		<div class="wrapper section__title-wrapper">
 			<h2 class="section__title cases__title wow animate__animated animate__fadeIn">
 				Капитально преобразим <br />
@@ -288,18 +301,20 @@
 		</div>
 		<div class="cases__inner">
 			<div class="cases__wrapper">
-				<div class="cases__gallery">
-					<?php foreach ($cases as $case) : ?>
-						<div class="cases-card">
-							<div class="cases-card__front">
-								<picture class="cases-card__pic"><img data-src="<?php echo $case['kapitalno_cases_after']; ?>" alt="После" class="cases-card__img" /></picture>
+				<?php foreach ($cases as $cases_floor) : ?>
+					<div class="cases__gallery">
+						<?php foreach ($cases_floor as $case) : ?>
+							<div class="cases-card">
+								<div class="cases-card__front">
+									<picture class="cases-card__pic"><img data-src="<?php echo $case['kapitalno_cases_after']; ?>" alt="После" class="cases-card__img" /></picture>
+								</div>
+								<div class="cases-card__back">
+									<picture class="cases-card__pic"><img src="<?php echo $case['kapitalno_cases_before']; ?>" alt="До" class="cases-card__img" /></picture>
+								</div>
 							</div>
-							<div class="cases-card__back">
-								<picture class="cases-card__pic"><img src="<?php echo $case['kapitalno_cases_before']; ?>" alt="До" class="cases-card__img" /></picture>
-							</div>
-						</div>
-					<?php endforeach; ?>
-				</div>
+						<?php endforeach; ?>
+					</div>
+				<?php endforeach; ?>
 				<div class="cases__cta">
 					<p class="cases__cta-desc wow animate__animated animate__fadeIn">
 						Посмотрите больше проектов
